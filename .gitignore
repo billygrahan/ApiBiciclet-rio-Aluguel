@@ -1,0 +1,24 @@
+# Pasta de build e arquivos temporários
+bin/
+obj/
+temp/
+
+# Configurações do Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos gerados
+*.cache
+*.log
+*.pid
+*.svclog
+*.pdb
+
+# Configurações do ambiente
+appsettings.json
+appsettings.Development.json
+
+
