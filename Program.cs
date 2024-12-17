@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
-using Microsoft.OpenApi.Models;
+
 using Aluguel.Repositories.Interfaces;
 using Aluguel.Repositories;
 using Aluguel.Context;

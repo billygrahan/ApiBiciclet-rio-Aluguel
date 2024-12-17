@@ -14,29 +14,32 @@ namespace Aluguel.Repositories
             _appDbContext = context;
         }
 
-        public Task<List<Funcionario>> Adicionar(Funcionario funcionario)
+        public async Task<Funcionario> Adicionar(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            await _appDbContext.Funcionarios.AddAsync(funcionario);
+            await _appDbContext.SaveChangesAsync();
+
+            return funcionario;
         }
 
-        public Task<Funcionario> Apagar(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Funcionario> Atualizar(Funcionario funcionario)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<Funcionario> BuscarPorId(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Funcionario> BuscarTodos()
+        public Task<List<Funcionario>> BuscarTodos()
         {
             throw new NotImplementedException();
         }
+        public Task<Funcionario> Atualizar(Funcionario funcionario, int id)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<Funcionario> Apagar(int id)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
