@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Aluguel.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Aluguel.Context;
@@ -9,5 +10,5 @@ public class AppDbContext : DbContext
     {
     }
 
-    // public DbSet ....
+    public DbSet<Funcionario> Funcionarios {  get; set; }
 }
