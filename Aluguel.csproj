@@ -20,8 +20,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+<<<<<<< HEAD
   <ItemGroup>
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+=======
+>>>>>>> 1d2690a4b13b85052b66cd98c8b5b8cd431dbbad
 </Project>
