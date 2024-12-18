@@ -1,4 +1,5 @@
-﻿using Aluguel.Models;
+﻿using Aluguel.Maps;
+using Aluguel.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -11,4 +12,10 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Funcionario> Funcionarios {  get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new FuncionarioMap());
+        base.OnModelCreating(modelBuilder);
+    }
 }

@@ -18,7 +18,7 @@ string postgreSqlConnection = builder.Configuration.GetConnectionString("Default
 builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(postgreSqlConnection));
 
-// Registra a interface IFuncionarioRepositorio com a implementação FuncionarioRepositorio no contêiner de DI.
+// Registra a interface IFuncionarioRepositorio com a implementação FuncionarioRepositorio no contêiner de injeção de dependências.
 // Define o ciclo de vida como Scoped (uma instância por requisição HTTP).
 // Permite a injeção de dependência em controladores, serviços e outras classes.
 builder.Services.AddScoped<IFuncionarioRepositorio, FuncionarioRepositorio>();

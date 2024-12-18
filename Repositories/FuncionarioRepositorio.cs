@@ -36,7 +36,7 @@ namespace Aluguel.Repositories
         {
             throw new NotImplementedException();
         }
-        public Task<Funcionario> Apagar(int id)
+        public Task<bool> Apagar(int id)
         {
             throw new NotImplementedException();
         }

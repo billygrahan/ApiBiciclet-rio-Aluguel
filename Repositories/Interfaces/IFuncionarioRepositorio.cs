@@ -12,6 +12,6 @@ namespace Aluguel.Repositories.Interfaces
 
         Task<Funcionario> Atualizar(Funcionario funcionario, int id);
 
-        Task<Funcionario> Apagar(int id);
+        Task<bool> Apagar(int id);
     }
 }
