@@ -4,14 +4,13 @@ namespace Aluguel.Models
 {
     public class Funcionario
     {
-        public string Id { get; set; }
+
+        // Chave-primária configurada no map
+        public string Matricula { get; set; }
 
         [StringLength(100, ErrorMessage = "O nome do funcionário não pode exceder 100 caracteres.")]
         public string Nome { get; set; }
 
-        // Ainda não tenho certeza se é um dado gerado automaticamente ou se é inputado no front
-        // Não pode ser modificado
-        public string Matricula { get; set; }
 
         public int Idade {  get; set; }
 
