@@ -1,17 +1,16 @@
 ﻿using Aluguel.Models;
 
-namespace Aluguel.Repositories.Interfaces
+namespace Aluguel.Repositories.Interfaces;
+
+public interface IFuncionarioRepositorio
 {
-    public interface IFuncionarioRepositorio
-    {
-        Task<Funcionario> Adicionar(Funcionario funcionario);
+    Task<Funcionario> Adicionar(Funcionario funcionario);
 
-        Task<List<Funcionario>> BuscarTodos();
+    Task<List<Funcionario>> BuscarTodos();
 
-        Task<Funcionario> BuscarPorId(int id);
+    Task<Funcionario> BuscarPorId(int id);
 
-        Task<Funcionario> Atualizar(Funcionario funcionario, int id);
+    Task<Funcionario> Atualizar(Funcionario funcionario, int id);
 
-        Task<bool> Apagar(int id);
-    }
+    Task<bool> Apagar(int id);
 }

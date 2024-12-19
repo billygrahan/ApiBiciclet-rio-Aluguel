@@ -1,37 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\",
+  "WorkspaceRootPath": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\arthur\\source\\repos\\apibicicletario-aluguel\\models\\funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:models\\funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\repositories\\funcionariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:repositories\\funcionariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\arthur\\source\\repos\\apibicicletario-aluguel\\models\\aluguel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:models\\aluguel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\controllers\\funcionariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:controllers\\funcionariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\arthur\\source\\repos\\apibicicletario-aluguel\\models\\cartaodecredito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:models\\cartaodecredito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\models\\passaporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:models\\passaporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\arthur\\source\\repos\\apibicicletario-aluguel\\models\\devolucao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:models\\devolucao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\models\\ciclista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:models\\ciclista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Aluguel\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\arthur\\source\\repos\\apibicicletario-aluguel\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\arthur\\source\\repos\\apibicicletario-aluguel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\arthur\\source\\repos\\apibicicletario-aluguel\\models\\ciclista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:models\\ciclista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\repositories\\interfaces\\iciclistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:repositories\\interfaces\\iciclistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\repositories\\interfaces\\ifuncionariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:repositories\\interfaces\\ifuncionariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\controllers\\ciclistacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:controllers\\ciclistacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|c:\\users\\billy grahan\\desktop\\iuuu\\apibicicletario-aluguel\\repositories\\ciclistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E73E1D2-AD8D-4DEA-811B-8C3AA45C8472}|Aluguel.csproj|solutionrelative:repositories\\ciclistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,16 +50,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 130,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 11,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
@@ -61,106 +62,150 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Funcionario.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Funcionario.cs",
-              "RelativeDocumentMoniker": "Models\\Funcionario.cs",
-              "ToolTip": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Funcionario.cs",
-              "RelativeToolTip": "Models\\Funcionario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Ciclista.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Models\\Ciclista.cs",
+              "RelativeDocumentMoniker": "Models\\Ciclista.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Models\\Ciclista.cs",
+              "RelativeToolTip": "Models\\Ciclista.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAwwCwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:15:42.751Z",
+              "WhenOpened": "2024-12-18T18:50:34.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CiclistaController.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Controllers\\CiclistaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CiclistaController.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Controllers\\CiclistaController.cs",
+              "RelativeToolTip": "Controllers\\CiclistaController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T22:21:55.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CiclistaRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\CiclistaRepositorio.cs",
+              "RelativeDocumentMoniker": "Repositories\\CiclistaRepositorio.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\CiclistaRepositorio.cs",
+              "RelativeToolTip": "Repositories\\CiclistaRepositorio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T22:25:07.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ICiclistaRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\Interfaces\\ICiclistaRepositorio.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\ICiclistaRepositorio.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\Interfaces\\ICiclistaRepositorio.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\ICiclistaRepositorio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T22:25:50.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-18T22:53:14.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Context\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Context\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Context\\AppDbContext.cs",
-              "RelativeToolTip": "Context\\AppDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T18:27:06.822Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Aluguel\\appsettings.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Billy Grahan\\Desktop\\iUUU\\Aluguel\\appsettings.json",
-              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\Aluguel\\appsettings.json",
-              "RelativeToolTip": "..\\..\\..\\..\\Billy Grahan\\Desktop\\iUUU\\Aluguel\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-16T19:31:59.76Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Program.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:33:03.995Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Ciclista.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Ciclista.cs",
-              "RelativeDocumentMoniker": "Models\\Ciclista.cs",
-              "ToolTip": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Ciclista.cs",
-              "RelativeToolTip": "Models\\Ciclista.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAAABsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T19:21:06.539Z"
+              "WhenOpened": "2024-12-18T22:53:24.489Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CartaodeCredito.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\CartaodeCredito.cs",
-              "RelativeDocumentMoniker": "Models\\CartaodeCredito.cs",
-              "ToolTip": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\CartaodeCredito.cs",
-              "RelativeToolTip": "Models\\CartaodeCredito.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Title": "Passaporte.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Models\\Passaporte.cs",
+              "RelativeDocumentMoniker": "Models\\Passaporte.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Models\\Passaporte.cs",
+              "RelativeToolTip": "Models\\Passaporte.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T13:20:09.248Z",
+              "WhenOpened": "2024-12-18T23:16:06.381Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 130,
+          "SelectedChildIndex": 2,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Aluguel.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Aluguel.cs",
-              "RelativeDocumentMoniker": "Models\\Aluguel.cs",
-              "ToolTip": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Aluguel.cs",
-              "RelativeToolTip": "Models\\Aluguel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAOAAAAAAAAAA==",
+              "Title": "FuncionarioController.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Controllers\\FuncionarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FuncionarioController.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Controllers\\FuncionarioController.cs",
+              "RelativeToolTip": "Controllers\\FuncionarioController.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAwwCoAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T13:21:21.059Z",
+              "WhenOpened": "2024-12-18T22:21:15.081Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Devolucao.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Devolucao.cs",
-              "RelativeDocumentMoniker": "Models\\Devolucao.cs",
-              "ToolTip": "C:\\Users\\Arthur\\source\\repos\\ApiBicicletario-Aluguel\\Models\\Devolucao.cs",
-              "RelativeToolTip": "Models\\Devolucao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "IFuncionarioRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\Interfaces\\IFuncionarioRepositorio.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IFuncionarioRepositorio.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\Interfaces\\IFuncionarioRepositorio.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\IFuncionarioRepositorio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T13:22:14.102Z",
+              "WhenOpened": "2024-12-18T22:25:12.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FuncionarioRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\FuncionarioRepositorio.cs",
+              "RelativeDocumentMoniker": "Repositories\\FuncionarioRepositorio.cs",
+              "ToolTip": "C:\\Users\\Billy Grahan\\Desktop\\iUUU\\ApiBicicletario-Aluguel\\Repositories\\FuncionarioRepositorio.cs",
+              "RelativeToolTip": "Repositories\\FuncionarioRepositorio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T22:32:31.554Z",
               "EditorCaption": ""
             }
           ]

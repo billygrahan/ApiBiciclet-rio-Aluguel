@@ -2,6 +2,7 @@
 bin/
 obj/
 temp/
+Migrations/
 
 # Configurações do Visual Studio
 .vs/
