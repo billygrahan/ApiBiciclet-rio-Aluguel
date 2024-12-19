@@ -62,7 +62,7 @@ namespace Aluguel.Controllers
             }
 
             // Retorna um Status 201 e um header Location com a URL para acessar o funcionario cadastrado 
-            return CreatedAtAction(nameof(BuscarFuncionarioPorId), new { id = funcionario.Id }, funcionario);
+            return CreatedAtAction(nameof(BuscarFuncionarioPorId), new { matricula = funcionario.Matricula }, funcionario);
         }
 
 
