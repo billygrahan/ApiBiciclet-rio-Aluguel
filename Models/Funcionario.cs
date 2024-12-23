@@ -1,24 +1,33 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Aluguel.Models.RequestsModels;
+using Aluguel.Tools;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Aluguel.Models
 {
+
     public class Funcionario
     {
+        [JsonIgnore]
+        public int Id { get; set; }
 
-        // Chave-primária configurada no map
         public string Matricula { get; set; }
 
-        [StringLength(100, ErrorMessage = "O nome do funcionário não pode exceder 100 caracteres.")]
-        public string Nome { get; set; }
+        [EmailAddress(ErrorMessage = "E-mail inválido.")]
+        public string Email { get; set; }
 
+        public string Nome { get; set; }
 
         public int Idade {  get; set; }
 
-        public string Funcao { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public Funcao Funcao { get; set; }
 
-        [RegularExpression(@"\d{11}", ErrorMessage = "CPF deve conter exatamente 11 dígitos.")]
-        public string Cpf {  get; set; } 
+        public string Cpf {  get; set; }
 
         // Não coloquei o atributo senha já que não haverá autenticação por enquanto
+
+
+
     }
 }

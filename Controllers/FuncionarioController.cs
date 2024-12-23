@@ -1,6 +1,7 @@
 ﻿using Aluguel.Models;
+using Aluguel.Models.RequestsModels;
 using Aluguel.Repositories.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Aluguel.Tools;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,8 +41,20 @@ namespace Aluguel.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Funcionario>> CadastrarFuncionario([FromBody] Funcionario funcionario)
+        public async Task<ActionResult<Funcionario>> CadastrarFuncionario([FromBody] NovoFuncionario novofuncionario)
         {
+
+            // A fazer: separar criação de model do dominio em alguma outra parte do projeto
+            Funcionario funcionario = new Funcionario
+            {
+                Email = novofuncionario.Email,
+                Matricula = GeradorMatricula.GerarMatricula(novofuncionario.Funcao),
+                Nome = novofuncionario.Nome,
+                Idade = novofuncionario.Idade,
+                Funcao = novofuncionario.Funcao,
+                Cpf = novofuncionario.Cpf
+            };
+
             try
             {
                 await _funcionarioRepositorio.Adicionar(funcionario);
@@ -62,7 +75,7 @@ namespace Aluguel.Controllers
             }
 
             // Retorna um Status 201 e um header Location com a URL para acessar o funcionario cadastrado 
-            return CreatedAtAction(nameof(BuscarFuncionarioPorId), new { matricula = funcionario.Matricula }, funcionario);
+            return CreatedAtAction(nameof(BuscarFuncionarioPorId), new { id = funcionario.Id }, funcionario);
         }
 
 

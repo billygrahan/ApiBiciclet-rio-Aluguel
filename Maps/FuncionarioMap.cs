@@ -8,8 +8,14 @@ namespace Aluguel.Maps
     {
         public void Configure(EntityTypeBuilder<Funcionario> builder)
         {
-                 builder.HasKey(u => u.Matricula);
-                 builder.HasIndex(u => u.Cpf).IsUnique();
+            builder.HasKey(f => f.Id);
+            builder.HasIndex(f => f.Cpf).IsUnique();
+            builder.HasIndex(f => f.Matricula).IsUnique();
+            builder.Property(f => f.Funcao)
+            .HasConversion(
+                v => v.ToString(),
+                v => (Funcao)Enum.Parse(typeof(Funcao), v));
+
         }
     }
 }
