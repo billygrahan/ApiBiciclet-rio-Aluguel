@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aluguel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+317d793faa59ac39c57f3c8687880df6edc8d4a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+897b896fbb3579286442c15b4af29ff8fcd623b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aluguel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aluguel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

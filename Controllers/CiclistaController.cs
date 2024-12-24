@@ -17,6 +17,17 @@ public class CiclistaController : ControllerBase
         _ciclistaRepositorio = ciclistaRepositorio;
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Ciclista>> BuscarCiclistaPorId(int id)
+    {
+        Funcionario funcionario = await _ciclistaRepositorio.
+        if (funcionario == null)
+        {
+            return NotFound(new { codigo = "404", mensagem = $"Funcionário com o ID {id} não foi encontrado." });
+        }
+        return Ok(funcionario);
+    }
+
     /*[HttpPost]
     public async Task<ActionResult<Ciclista>> CadastrarCiclista([FromBody] Ciclista ciclista)
     {
