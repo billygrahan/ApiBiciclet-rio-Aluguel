@@ -53,9 +53,16 @@ public class CiclistaRepositorio : ICiclistaRepositorio
 
         //tratar erros e null!
 
-        _appDbContext.Ciclistas.Remove(ciclista);
-        await _appDbContext.SaveChangesAsync();
-        return true;
+        try
+        {
+            _appDbContext.Ciclistas.Remove(ciclista);
+            await _appDbContext.SaveChangesAsync();
+            return true;
+        }
 
+        catch
+        {
+            return false;
+        }
     }
 }
