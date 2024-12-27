@@ -1,4 +1,5 @@
 ﻿using Aluguel.Models;
+using Aluguel.Models.RequestsModels;
 
 namespace Aluguel.Repositories.Interfaces;
 
@@ -10,7 +11,7 @@ public interface IFuncionarioRepositorio
 
     Task<Funcionario> BuscarPorId(int id);
 
-    Task<Funcionario> Atualizar(Funcionario funcionario, int id);
+    Task<Funcionario> Atualizar(NovoFuncionario novoFuncionario, int id);
 
     Task<bool> Apagar(int id);
 }

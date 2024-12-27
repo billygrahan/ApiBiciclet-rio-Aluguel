@@ -1,6 +1,9 @@
 ﻿using Aluguel.Context;
+using Aluguel.Exceptions;
 using Aluguel.Models;
+using Aluguel.Models.RequestsModels;
 using Aluguel.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aluguel.Repositories
 {
@@ -23,22 +26,45 @@ namespace Aluguel.Repositories
         }
 
 
-        public Task<Funcionario> BuscarPorId(int id)
+        public async Task<Funcionario> BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            var funcionario = await _appDbContext.Funcionarios.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (funcionario == null)
+            {
+                throw new IdNaoEncontradoException($"Nenhum funcionário com o id {id} foi encontrado no banco de dados.");
+            }
+
+            return funcionario;
         }
 
-        public Task<List<Funcionario>> BuscarTodos()
+        public async Task<List<Funcionario>> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return await _appDbContext.Funcionarios.ToListAsync();
         }
-        public Task<Funcionario> Atualizar(Funcionario funcionario, int id)
+        public async Task<Funcionario> Atualizar(NovoFuncionario novoFuncionario, int id)
         {
-            throw new NotImplementedException();
+            // BuscarPorId lança uma exceção se nenhum funcionario for encontrado
+            Funcionario funcionarioEncontrado = await this.BuscarPorId(id);
+
+            funcionarioEncontrado.Nome = novoFuncionario.Nome;
+            funcionarioEncontrado.Email = novoFuncionario.Email;
+            funcionarioEncontrado.Idade = novoFuncionario.Idade;
+            funcionarioEncontrado.Cpf = novoFuncionario.Cpf;
+            funcionarioEncontrado.Funcao = novoFuncionario.Funcao;
+            _appDbContext.Funcionarios.Update(funcionarioEncontrado);
+            await _appDbContext.SaveChangesAsync();
+
+            return funcionarioEncontrado;
         }
-        public Task<bool> Apagar(int id)
+        public async Task<bool> Apagar(int id)
         {
-            throw new NotImplementedException();
+            // BuscarPorId lança uma exceção se nenhum funcionario for encontrado
+            var funcionario = await this.BuscarPorId(id);
+
+            _appDbContext.Funcionarios.Remove(funcionario);
+            await _appDbContext.SaveChangesAsync();
+            return true;
         }
 
     }

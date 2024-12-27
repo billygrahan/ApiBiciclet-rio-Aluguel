@@ -1,4 +1,5 @@
-﻿using Aluguel.Models;
+﻿using Aluguel.Exceptions;
+using Aluguel.Models;
 using Aluguel.Models.RequestsModels;
 using Aluguel.Repositories.Interfaces;
 using Aluguel.Tools;
@@ -26,18 +27,27 @@ namespace Aluguel.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Funcionario))]
         public async Task<ActionResult<Funcionario>> BuscarFuncionarioPorId(int id)
         {
 
             if (id <= 0)
-                return StatusCode(422, new { mensagem = "O id inserido na URL não é válido"});
+                return StatusCode(422,new Erro("404", "O id inserido não é válido"));
 
-            Funcionario funcionario = await _funcionarioRepositorio.BuscarPorId(id);
-            if (funcionario == null)
+           
+            try
             {
-                return NotFound(new { codigo = "404", mensagem = $"Funcionário com o ID {id} não foi encontrado." });
+                Funcionario funcionario = await _funcionarioRepositorio.BuscarPorId(id);
+                return Ok(funcionario);
             }
-            return Ok(funcionario);
+            catch (IdNaoEncontradoException ex)
+            {
+                return NotFound(new Erro("404", ex.Message));
+            }
+         
+
         }
 
         [HttpPost]
@@ -80,7 +90,10 @@ namespace Aluguel.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Funcionario>> AtualizarFuncionario([FromBody] Funcionario funcionario, int id)
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Funcionario))]
+        public async Task<ActionResult<Funcionario>> AtualizarFuncionario([FromBody] NovoFuncionario novofuncionario, int id)
         {
 
 
@@ -91,14 +104,15 @@ namespace Aluguel.Controllers
 
             try
             {
-                funcionarioAtualizado = await _funcionarioRepositorio.Atualizar(funcionario, id);
-                if (funcionarioAtualizado == null)
-                {
-                    return NotFound(new { codigo = "404", mensagem = $"Funcionário com o ID {id} não foi encontrado." });
-                }
+                funcionarioAtualizado = await _funcionarioRepositorio.Atualizar(novofuncionario, id);
+                return Ok(funcionarioAtualizado);
 
             }
-            catch(DbUpdateException ex) when (ex.InnerException != null)
+            catch (IdNaoEncontradoException ex)
+            {
+                return NotFound(new Erro("404", ex.Message));
+            }
+            catch (DbUpdateException ex) when (ex.InnerException != null)
             {
                 if (ex.InnerException.Message.Contains("UNIQUE")){
                     return StatusCode(422, new { codigo = "422", mensagem = "Já existe um funcionário cadastrado com a matrícula informada" });
@@ -107,22 +121,26 @@ namespace Aluguel.Controllers
                 return BadRequest(new {mensagem = "O funcionário não pode ser atualizado"});
             }
 
-            return Ok(funcionarioAtualizado);
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> DeletarFuncionario(int id)
         {
 
             if (id <= 0)
                 return StatusCode(422, new { mensagem = "O id inserido na URL não é válido" });
 
-            bool deletado = await _funcionarioRepositorio.Apagar(id);
-            if (!deletado)
+            try
             {
-                return NotFound(new {codigo = "404", mensagem = $"Funcionário com o ID {id} não foi encontrado."});
+                await _funcionarioRepositorio.Apagar(id);
+                return Ok();
+            }catch(IdNaoEncontradoException ex)
+            {
+                return NotFound(new Erro("404",ex.Message));
             }
-            return NoContent();
         }
 
     }
