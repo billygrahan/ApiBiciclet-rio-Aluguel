@@ -1,14 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace Aluguel.Models;
+namespace Aluguel.Models.RequestsModels;
 
-public class CartaoDeCredito
+public class NovoCartaoDeCredito
 {
-    [Key]
-    [JsonIgnore]
-    public int Id { get; set; }
-
     [StringLength(100, ErrorMessage = "O nome do titular não pode exceder 100 caracteres.")]
     public string NomeTitular { get; set; }
 

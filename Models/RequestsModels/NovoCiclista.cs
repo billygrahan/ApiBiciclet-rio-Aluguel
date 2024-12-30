@@ -32,9 +32,8 @@ public class NovoCiclista
     public string UrlFotoDocumento { get; set; }
 }
 
-// Enum para a Nacionalidade
-public enum NacionalidadeCiclista
+public class Ciclista_Cartao
 {
-    BRASILEIRO,
-    ESTRANGEIRO
+    public NovoCiclista ciclista { get; set; }
+    public NovoCartaoDeCredito cartaoDeCredito { get; set; }
 }

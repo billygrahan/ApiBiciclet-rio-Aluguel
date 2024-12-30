@@ -16,7 +16,6 @@ public class AppDbContext : DbContext
     public DbSet<CartaoDeCredito> CartoesDeCreditos { get; set; }
     public DbSet<Devolucao> Devolucoes { get; set; }
     public DbSet<Models.Aluguel> Alugueis { get; set; }
-    public DbSet<Passaporte> Passaportes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
