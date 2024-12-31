@@ -2,11 +2,12 @@
 
 using Aluguel.Context;
 using Aluguel.Models;
+using Aluguel.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aluguel.Repositories;
 
-public class CartaodeCreditoRepositorio
+public class CartaodeCreditoRepositorio : ICartaodeCreditoRepositorio
 {
     private readonly AppDbContext _appDbContext;
 
