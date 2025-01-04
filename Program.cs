@@ -4,6 +4,7 @@ using Aluguel.Repositories.Interfaces;
 using Aluguel.Repositories;
 using Aluguel.Context;
 using System.Text.Json.Serialization;
+using Aluguel.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IFuncionarioRepositorio, FuncionarioRepositorio>();
 
 builder.Services.AddScoped<ICiclistaRepositorio, CiclistaRepositorio>();
 
+builder.Services.AddScoped<FuncionarioValidador>();
 
 var app = builder.Build();
 

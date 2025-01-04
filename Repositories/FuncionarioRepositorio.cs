@@ -38,6 +38,17 @@ namespace Aluguel.Repositories
             return funcionario;
         }
 
+        public async Task<bool> VerificarCPF(string cpf)
+        {
+            return await _appDbContext.Funcionarios.AnyAsync(f => f.Cpf == cpf);
+        }
+
+        public async Task<bool> VerificarCpfEmOutroId(string cpf, int id)
+        {
+            return await _appDbContext.Funcionarios.AnyAsync(f => f.Cpf == cpf && f.Id != id);
+
+        }
+
         public async Task<List<Funcionario>> BuscarTodos()
         {
             return await _appDbContext.Funcionarios.ToListAsync();

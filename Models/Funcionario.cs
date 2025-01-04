@@ -1,6 +1,4 @@
-﻿using Aluguel.Models.RequestsModels;
-using Aluguel.Tools;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Aluguel.Models

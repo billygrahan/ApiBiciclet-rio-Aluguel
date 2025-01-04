@@ -3,6 +3,7 @@ using Aluguel.Models;
 using Aluguel.Models.RequestsModels;
 using Aluguel.Repositories.Interfaces;
 using Aluguel.Tools;
+using Aluguel.Validation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,9 +15,12 @@ namespace Aluguel.Controllers
     {
         private readonly IFuncionarioRepositorio _funcionarioRepositorio;
 
-        public FuncionarioController(IFuncionarioRepositorio funcionarioRepositorio)
+        private readonly FuncionarioValidador _funcionarioValidador;
+
+        public FuncionarioController(IFuncionarioRepositorio funcionarioRepositorio, FuncionarioValidador funcionarioValidador)
         {
             _funcionarioRepositorio = funcionarioRepositorio;
+            _funcionarioValidador = funcionarioValidador;
         }
 
         [HttpGet]
@@ -26,20 +30,20 @@ namespace Aluguel.Controllers
             return Ok(funcionarios);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{idFuncionario}")]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(List<Erro>))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Funcionario))]
-        public async Task<ActionResult<Funcionario>> BuscarFuncionarioPorId(int id)
+        public async Task<ActionResult<Funcionario>> BuscarFuncionarioPorId(int idFuncionario)
         {
 
-            if (id <= 0)
-                return StatusCode(422,new Erro("404", "O id inserido não é válido"));
+            if (idFuncionario <= 0)
+                return StatusCode(422, new List<Erro> { new Erro("422", "O id inserido não é válido") });
 
-           
+
             try
             {
-                Funcionario funcionario = await _funcionarioRepositorio.BuscarPorId(id);
+                Funcionario funcionario = await _funcionarioRepositorio.BuscarPorId(idFuncionario);
                 return Ok(funcionario);
             }
             catch (IdNaoEncontradoException ex)
@@ -51,6 +55,8 @@ namespace Aluguel.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(List<Erro>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Funcionario))]
         public async Task<ActionResult<Funcionario>> CadastrarFuncionario([FromBody] NovoFuncionario novofuncionario)
         {
 
@@ -67,44 +73,52 @@ namespace Aluguel.Controllers
 
             try
             {
+                List<Erro> listaErros = await _funcionarioValidador.GerarListaErros(false, novofuncionario);
+
+                if (listaErros.Count > 0)
+                    return StatusCode(422, listaErros);
+
                 await _funcionarioRepositorio.Adicionar(funcionario);
+
+
+                // Retorna um Status 201 e um header Location com a URL para acessar o funcionario cadastrado 
+                // (LINHA ANTIGA) return CreatedAtAction(nameof(BuscarFuncionarioPorId), new { id = funcionario.Id }, funcionario);
+
+                // Retornei um 200 para ficar igual ao swagger modelo
+
+                return Ok(funcionario);
             }
             catch (DbUpdateException ex) when (ex.InnerException != null)
             {
                 // DbUpdateException é lançada por SaveChanges() no repositório e encapsula uma
                 // exceção específica (InnerException) do BD usado
 
-
-                if (ex.InnerException.Message.Contains("UNIQUE"))
-                {
-                    return StatusCode(422, new { codigo = "422", mensagem = "Já existe um funcionário cadastrado com a matrícula informada" });
-                }
-
                 return BadRequest(new { mensagem = "O funcionário não pode ser cadastrado" });
 
             }
 
-            // Retorna um Status 201 e um header Location com a URL para acessar o funcionario cadastrado 
-            return CreatedAtAction(nameof(BuscarFuncionarioPorId), new { id = funcionario.Id }, funcionario);
+
+    
         }
 
-
-        [HttpPut("{id}")]
+        [HttpPut("{idFuncionario}")]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(List<Erro>))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Funcionario))]
-        public async Task<ActionResult<Funcionario>> AtualizarFuncionario([FromBody] NovoFuncionario novofuncionario, int id)
+        public async Task<ActionResult<Funcionario>> AtualizarFuncionario([FromBody] NovoFuncionario novofuncionario, int idFuncionario)
         {
-
-
-            if (id <= 0)
-                return StatusCode(422, new { mensagem = "O id inserido na URL não é válido" });
 
             Funcionario funcionarioAtualizado;
 
             try
             {
-                funcionarioAtualizado = await _funcionarioRepositorio.Atualizar(novofuncionario, id);
+                novofuncionario.Id = idFuncionario;
+                List<Erro> listaErros = await _funcionarioValidador.GerarListaErros(true, novofuncionario);
+
+                if (listaErros.Count > 0)
+                    return StatusCode(422, listaErros);
+
+                funcionarioAtualizado = await _funcionarioRepositorio.Atualizar(novofuncionario, idFuncionario);
                 return Ok(funcionarioAtualizado);
 
             }
@@ -114,28 +128,24 @@ namespace Aluguel.Controllers
             }
             catch (DbUpdateException ex) when (ex.InnerException != null)
             {
-                if (ex.InnerException.Message.Contains("UNIQUE")){
-                    return StatusCode(422, new { codigo = "422", mensagem = "Já existe um funcionário cadastrado com a matrícula informada" });
-                }
-
                 return BadRequest(new {mensagem = "O funcionário não pode ser atualizado"});
             }
 
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{idFuncionario}")]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(Erro))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(List<Erro>))]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult> DeletarFuncionario(int id)
+        public async Task<ActionResult> DeletarFuncionario(int idFuncionario)
         {
 
-            if (id <= 0)
-                return StatusCode(422, new { mensagem = "O id inserido na URL não é válido" });
+            if (idFuncionario <= 0)
+                return StatusCode(422, new List<Erro> { new Erro("422", "O id inserido não é válido") });
 
             try
             {
-                await _funcionarioRepositorio.Apagar(id);
+                await _funcionarioRepositorio.Apagar(idFuncionario);
                 return Ok();
             }catch(IdNaoEncontradoException ex)
             {
