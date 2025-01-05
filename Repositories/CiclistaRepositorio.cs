@@ -33,6 +33,16 @@ public class CiclistaRepositorio : ICiclistaRepositorio
         return ciclista;
     }
 
+    public async Task<Ciclista> BuscarPorEmail(string email)
+    {
+
+        var ciclista = await _appDbContext.Ciclistas.FirstOrDefaultAsync(c => c.Email == email);
+
+        //tratar erros e null!
+
+        return ciclista;
+    }
+
     public async Task<List<Ciclista>> BuscarTodos()
     {
         //tratar erros!

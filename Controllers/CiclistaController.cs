@@ -79,7 +79,6 @@ public class CiclistaController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<Ciclista>> AtualizarCiclista(int id, [FromBody] NovoCiclista novoCiclista)
     {
-        // Buscar ciclista existente
         var ciclistaExistente = await _ciclistaRepositorio.BuscarPorId(id);
 
         if (ciclistaExistente == null)
@@ -87,7 +86,6 @@ public class CiclistaController : ControllerBase
             return NotFound(new { codigo = "404", mensagem = $"Ciclista com o ID {id} não foi encontrado." });
         }
 
-        // Atualizar propriedades do ciclista
         ciclistaExistente.Nome = novoCiclista.Nome;
         ciclistaExistente.Nascimento = DateTime.SpecifyKind(novoCiclista.Nascimento, DateTimeKind.Utc);
         ciclistaExistente.Cpf = novoCiclista.Cpf;
@@ -96,10 +94,35 @@ public class CiclistaController : ControllerBase
         ciclistaExistente.Email = novoCiclista.Email;
         ciclistaExistente.UrlFotoDocumento = novoCiclista.UrlFotoDocumento;
 
-        // Atualizar ciclista no repositório
         await _ciclistaRepositorio.Atualizar(ciclistaExistente);
 
         return Ok(ciclistaExistente);
+    }
+
+    [HttpPost("{id}/ativar")]
+    public async Task<ActionResult<Ciclista>> AtivarCadastro(int id)
+    {
+        var ciclistaExistente = await _ciclistaRepositorio.BuscarPorId(id);
+
+        if (ciclistaExistente == null)
+        {
+            return NotFound(new { codigo = "404", mensagem = $"Ciclista com o ID {id} não foi encontrado." });
+        }
+
+        ciclistaExistente.Status = StatusCiclista.ATIVO;
+
+        await _ciclistaRepositorio.Atualizar(ciclistaExistente);
+
+        return Ok(ciclistaExistente);
+    }
+
+    [HttpGet("existeEmail/{email}")]
+    public async Task<bool> ExisteEmail(string email)
+    {
+        var ciclistaexistente = await _ciclistaRepositorio.BuscaPorEmail(email);
+
+        if (ciclistaexistente == null) { return false; }
+        else return true;
     }
 
     [HttpDelete("{id}")]
