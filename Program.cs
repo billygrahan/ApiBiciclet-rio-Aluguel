@@ -31,6 +31,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IFuncionarioRepositorio, FuncionarioRepositorio>();
 builder.Services.AddScoped<ICiclistaRepositorio, CiclistaRepositorio>();
 builder.Services.AddScoped<ICartaodeCreditoRepositorio, CartaodeCreditoRepositorio>();
+builder.Services.AddScoped<IPassaporteRepositorio, PassaporteRepositorio>();
 
 
 var app = builder.Build();

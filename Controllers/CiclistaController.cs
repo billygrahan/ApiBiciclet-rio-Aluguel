@@ -79,6 +79,7 @@ public class CiclistaController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<Ciclista>> AtualizarCiclista(int id, [FromBody] NovoCiclista novoCiclista)
     {
+        // Buscar ciclista existente
         var ciclistaExistente = await _ciclistaRepositorio.BuscarPorId(id);
 
         if (ciclistaExistente == null)
@@ -86,28 +87,20 @@ public class CiclistaController : ControllerBase
             return NotFound(new { codigo = "404", mensagem = $"Ciclista com o ID {id} não foi encontrado." });
         }
 
+        // Atualizar propriedades do ciclista
         ciclistaExistente.Nome = novoCiclista.Nome;
-        ciclistaExistente.Nascimento = novoCiclista.Nascimento;
+        ciclistaExistente.Nascimento = DateTime.SpecifyKind(novoCiclista.Nascimento, DateTimeKind.Utc);
         ciclistaExistente.Cpf = novoCiclista.Cpf;
-        //ciclistaExistente.Passaporte = novoCiclista.Passaporte;
+        ciclistaExistente.Passaporte = novoCiclista.Passaporte;
         ciclistaExistente.Nacionalidade = novoCiclista.Nacionalidade;
         ciclistaExistente.Email = novoCiclista.Email;
         ciclistaExistente.UrlFotoDocumento = novoCiclista.UrlFotoDocumento;
 
-
-        ciclistaExistente.Nascimento = DateTime.SpecifyKind(ciclistaExistente.Nascimento, DateTimeKind.Utc);
-        if (ciclistaExistente.Passaporte != null)
-        {
-            ciclistaExistente.Passaporte.Validade = DateTime.SpecifyKind(ciclistaExistente.Passaporte.Validade, DateTimeKind.Utc);
-        }
-
+        // Atualizar ciclista no repositório
         await _ciclistaRepositorio.Atualizar(ciclistaExistente);
-        
+
         return Ok(ciclistaExistente);
     }
-
-
-
 
     [HttpDelete("{id}")]
     public async Task<bool> DeletarCicista(int id)
