@@ -29,6 +29,8 @@ public class CiclistaController : ControllerBase
         {
             return NotFound(new { codigo = "404", mensagem = $"Ciclista com o ID {id} não foi encontrado." });
         }
+
+
         return Ok(ciclista);
     }
 
@@ -84,7 +86,6 @@ public class CiclistaController : ControllerBase
             return NotFound(new { codigo = "404", mensagem = $"Ciclista com o ID {id} não foi encontrado." });
         }
 
-        // Transformar NovoCiclista em Ciclista
         ciclistaExistente.Nome = novoCiclista.Nome;
         ciclistaExistente.Nascimento = novoCiclista.Nascimento;
         ciclistaExistente.Cpf = novoCiclista.Cpf;
@@ -93,6 +94,7 @@ public class CiclistaController : ControllerBase
         ciclistaExistente.Email = novoCiclista.Email;
         ciclistaExistente.UrlFotoDocumento = novoCiclista.UrlFotoDocumento;
 
+
         ciclistaExistente.Nascimento = DateTime.SpecifyKind(ciclistaExistente.Nascimento, DateTimeKind.Utc);
         if (ciclistaExistente.Passaporte != null)
         {
@@ -100,7 +102,7 @@ public class CiclistaController : ControllerBase
         }
 
         await _ciclistaRepositorio.Atualizar(ciclistaExistente);
-
+        
         return Ok(ciclistaExistente);
     }
 

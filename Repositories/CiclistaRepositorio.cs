@@ -25,7 +25,7 @@ public class CiclistaRepositorio : ICiclistaRepositorio
 
     public async Task<Ciclista> BuscarPorId(int id)
     {
-        var ciclista = await _appDbContext.Ciclistas.FirstOrDefaultAsync(c => c.Id == id);
+        var ciclista = await _appDbContext.Ciclistas.Include(c => c.Passaporte).FirstOrDefaultAsync(c => c.Id == id);
 
         //tratar erros e null!
 
