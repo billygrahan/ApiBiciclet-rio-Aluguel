@@ -30,8 +30,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Define o ciclo de vida como Scoped (uma instância por requisição HTTP).
 // Permite a injeção de dependência em controladores, serviços e outras classes.
 builder.Services.AddScoped<IFuncionarioRepositorio, FuncionarioRepositorio>();
-
 builder.Services.AddScoped<ICiclistaRepositorio, CiclistaRepositorio>();
+builder.Services.AddScoped<ICartaodeCreditoRepositorio, CartaodeCreditoRepositorio>();
+builder.Services.AddScoped<IPassaporteRepositorio, PassaporteRepositorio>();
 
 builder.Services.AddScoped<FuncionarioValidador>();
 
