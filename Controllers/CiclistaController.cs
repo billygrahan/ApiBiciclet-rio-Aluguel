@@ -119,7 +119,7 @@ public class CiclistaController : ControllerBase
     [HttpGet("existeEmail/{email}")]
     public async Task<bool> ExisteEmail(string email)
     {
-        var ciclistaexistente = await _ciclistaRepositorio.BuscaPorEmail(email);
+        var ciclistaexistente = await _ciclistaRepositorio.BuscarPorEmail(email);
 
         if (ciclistaexistente == null) { return false; }
         else return true;

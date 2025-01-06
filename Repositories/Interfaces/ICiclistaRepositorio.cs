@@ -8,7 +8,7 @@ public interface ICiclistaRepositorio
 
     Task<Ciclista> BuscarPorId(int id);
 
-    Task<Ciclista> BuscaPorEmail(string email);
+    Task<Ciclista> BuscarPorEmail(string email);
 
     Task<List<Ciclista>> BuscarTodos();
 
