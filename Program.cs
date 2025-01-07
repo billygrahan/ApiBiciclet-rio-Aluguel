@@ -35,6 +35,7 @@ builder.Services.AddScoped<ICartaodeCreditoRepositorio, CartaodeCreditoRepositor
 builder.Services.AddScoped<IPassaporteRepositorio, PassaporteRepositorio>();
 
 builder.Services.AddScoped<FuncionarioValidador>();
+builder.Services.AddScoped<CiclistaValidador>();
 
 var app = builder.Build();
 

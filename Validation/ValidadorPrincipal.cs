@@ -27,6 +27,11 @@ namespace Aluguel.Validation
             return idade >= 18;
         }
 
+        public static bool UrlEhValida(string url)
+        {
+            return Uri.TryCreate(url, UriKind.Absolute, out _);
+        }
+
         // Por enquanto não validei função já que está mapeada como um Enum
 
 

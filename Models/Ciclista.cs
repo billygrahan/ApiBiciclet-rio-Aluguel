@@ -15,13 +15,11 @@ public class Ciclista
     [EnumDataType(typeof(StatusCiclista))]
     public StatusCiclista Status { get; set; }
 
-    [StringLength(100, ErrorMessage = "O nome não pode ter mais que 100 caracteres.")]
     public string Nome { get; set; }
 
     [DataType(DataType.Date)]
     public DateTime Nascimento { get; set; }
 
-    [RegularExpression(@"\d{11}", ErrorMessage = "CPF deve conter exatamente 11 dígitos.")]
     public string? Cpf { get; set; }
 
     // Relacionamento com o passaporte
@@ -30,10 +28,8 @@ public class Ciclista
     [EnumDataType(typeof(NacionalidadeCiclista))]
     public NacionalidadeCiclista Nacionalidade { get; set; }
 
-    [EmailAddress(ErrorMessage = "E-mail inválido.")]
     public string Email { get; set; }
 
-    [Url(ErrorMessage = "URL inválida.")]
     public string UrlFotoDocumento { get; set; }
 }
 
