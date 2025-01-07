@@ -13,11 +13,13 @@ public class CiclistaController : ControllerBase
 {
     private readonly ICiclistaRepositorio _ciclistaRepositorio;
     private readonly ICartaodeCreditoRepositorio _cartaoRepositorio;
+    private readonly IAluguelRepositorio _aluguelRepositorio;
 
-    public CiclistaController(ICiclistaRepositorio ciclistaRepositorio, ICartaodeCreditoRepositorio cartao)
+    public CiclistaController(ICiclistaRepositorio ciclistaRepositorio, ICartaodeCreditoRepositorio cartao, IAluguelRepositorio aluguelRepositorio)
     {
         _cartaoRepositorio = cartao;
         _ciclistaRepositorio = ciclistaRepositorio;
+        _aluguelRepositorio = aluguelRepositorio;
     }
 
     [HttpGet("{id}")]
@@ -129,5 +131,48 @@ public class CiclistaController : ControllerBase
     public async Task<bool> DeletarCicista(int id)
     {
         return await _ciclistaRepositorio.Apagar(id);
+    }
+
+    [HttpGet("{id}/permiteAluguel")]
+    [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
+    public async Task<ActionResult<bool>> PermiteAluguel(int id)
+    {
+        var ciclista = await _ciclistaRepositorio.BuscarPorId(id);
+        if(ciclista == null)
+            return NotFound(new Erro("404", "Nenhum ciclista com o Id especificado foi encontrado."));
+
+        bool temAluguel = await _aluguelRepositorio.VerificarSeExisteAluguelAtivo(id);
+
+        return Ok(!temAluguel);
+    }
+
+    [HttpGet("{idCiclista}/bicicletaAlugada")]
+    [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Erro))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Bicicleta))]
+    public async Task<ActionResult<Bicicleta>> ObterBicicleta(int idCiclista)
+    {
+        var ciclista = await _ciclistaRepositorio.BuscarPorId(idCiclista);
+        if (ciclista == null)
+            return NotFound(new Erro("404", "Nenhum ciclista com o Id especificado foi encontrado."));
+
+        Aluguel aluguel = await _aluguelRepositorio.PegarAluguelAtivoPorCiclistaId(idCiclista);
+
+        // Ciclista sem Aluguel/Bicicleta 
+        if(aluguel == null)
+            return Ok(new { });
+
+        // Integração para pegar Bicicleta usando Id deve acontecer aqui
+        Bicicleta bicicleta = new Bicicleta
+        {
+            Id = aluguel.Bicicleta,
+            Marca = "Caloi",
+            Modelo = "Bicicleta Placeholder",
+            Numero = 1,
+            Status = "EM_USO"
+
+        };
+
+        return Ok(bicicleta);
     }
 }

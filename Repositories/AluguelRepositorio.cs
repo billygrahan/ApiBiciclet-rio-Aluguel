@@ -59,9 +59,6 @@ namespace ApiAluguel.Repositories
         {
            var aluguel = await _appDbContext.Alugueis.FirstOrDefaultAsync(a=> a.Ciclista == ciclistaId && a.Ativo);
 
-            if (aluguel is null)
-                throw new IdNaoEncontradoException($"Nenhum aluguel ativo foi encontrado para o ciclista de id {ciclistaId}");
-
             return aluguel;
         }
 
