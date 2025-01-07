@@ -15,4 +15,6 @@ public interface ICiclistaRepositorio
     Task<Ciclista> Atualizar(Ciclista novociclista);
 
     Task<bool> Apagar(int id);
+
+    Task<bool> VerificarCpfEmOutroId(string cpf, int id);
 }

@@ -43,6 +43,8 @@ namespace ApiAluguel.Controllers
                 Cobranca = aluguel.Cobranca
             };
 
+            await _devolucaoRepositorio.DevolverBicicleta(devolucao);
+
             // Atualiza Aluguel com horaFim e TrancaFim e coloca ele como Inativo
             aluguel.HoraFim = horaFim;
             aluguel.TrancaFim = novoDevolucao.trancaFim;

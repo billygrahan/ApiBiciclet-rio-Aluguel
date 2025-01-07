@@ -76,4 +76,10 @@ public class CiclistaRepositorio : ICiclistaRepositorio
             return false;
         }
     }
+
+    public async Task<bool> VerificarCpfEmOutroId(string cpf, int id)
+    {
+        return await _appDbContext.Ciclistas.AnyAsync(f => f.Cpf == cpf && f.Id != id);
+
+    }
 }

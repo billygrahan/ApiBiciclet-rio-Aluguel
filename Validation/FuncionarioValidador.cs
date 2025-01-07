@@ -5,7 +5,7 @@ using ApiAluguel.Repositories.Interfaces;
 
 namespace ApiAluguel.Validation
 {
-    public class FuncionarioValidador 
+    public class FuncionarioValidador
     {
         private readonly IFuncionarioRepositorio _funcionarioRepositorio;
 
@@ -16,7 +16,7 @@ namespace ApiAluguel.Validation
 
         public async Task<List<Erro>> GerarListaErros(bool ehAtualizacao, NovoFuncionario funcionario)
         {
-            List<Erro> listaErros =  new List<Erro>();
+            List<Erro> listaErros = new List<Erro>();
 
             if (!ValidadorPrincipal.NomeEhValido(funcionario.Nome))
             {
@@ -38,7 +38,7 @@ namespace ApiAluguel.Validation
             }
             // Caso a validação seja em update funcionario, é verificado se o CPF já existe em outro usuário de Id diferente o inserido na URL
             // Caso a validação seja no cadastro é verificado se qualquer usuario tem o mesmo CPF
-            else 
+            else
             {
                 var cpfEmUso = ehAtualizacao
                 ? await _funcionarioRepositorio.VerificarCpfEmOutroId(funcionario.Cpf, funcionario.Id)
@@ -49,7 +49,7 @@ namespace ApiAluguel.Validation
                     listaErros.Add(new Erro("409", "O CPF fornecido já está em uso"));
                 }
             }
-          
+
 
             return listaErros;
         }
