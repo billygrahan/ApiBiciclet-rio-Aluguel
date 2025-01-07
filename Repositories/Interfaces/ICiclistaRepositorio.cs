@@ -1,6 +1,6 @@
-﻿using Aluguel.Models;
+﻿using ApiAluguel.Models;
 
-namespace Aluguel.Repositories.Interfaces;
+namespace ApiAluguel.Repositories.Interfaces;
 
 public interface ICiclistaRepositorio
 {

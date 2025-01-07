@@ -1,11 +1,11 @@
 ﻿
 
-using Aluguel.Context;
-using Aluguel.Models;
-using Aluguel.Repositories.Interfaces;
+using ApiAluguel.Context;
+using ApiAluguel.Models;
+using ApiAluguel.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Aluguel.Repositories;
+namespace ApiAluguel.Repositories;
 
 public class CartaodeCreditoRepositorio : ICartaodeCreditoRepositorio
 {

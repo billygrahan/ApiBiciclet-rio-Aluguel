@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
-namespace Aluguel.Models;
+namespace ApiAluguel.Models;
 
 public class Aluguel
 {
     [Key]
+    [JsonIgnore]
     public int Id { get; set; }
 
     [Required]
@@ -28,4 +30,7 @@ public class Aluguel
 
     [Required]
     public int TrancaInicio { get; set; }
+
+    [JsonIgnore]
+    public bool Ativo { get; set; }
 }

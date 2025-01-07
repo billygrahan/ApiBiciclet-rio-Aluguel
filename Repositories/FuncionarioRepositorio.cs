@@ -1,11 +1,11 @@
-﻿using Aluguel.Context;
-using Aluguel.Exceptions;
-using Aluguel.Models;
-using Aluguel.Models.RequestsModels;
-using Aluguel.Repositories.Interfaces;
+﻿using ApiAluguel.Context;
+using ApiAluguel.Exceptions;
+using ApiAluguel.Models;
+using ApiAluguel.Models.RequestsModels;
+using ApiAluguel.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Aluguel.Repositories
+namespace ApiAluguel.Repositories
 {
     public class FuncionarioRepositorio : IFuncionarioRepositorio
     {
@@ -19,7 +19,7 @@ namespace Aluguel.Repositories
 
         public async Task<Funcionario> Adicionar(Funcionario funcionario)
         {
-            await _appDbContext.Funcionarios.AddAsync(funcionario);
+            var funcionarioInserido = await _appDbContext.Funcionarios.AddAsync(funcionario);
             await _appDbContext.SaveChangesAsync();
 
             return funcionario;

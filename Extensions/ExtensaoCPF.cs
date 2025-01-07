@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Aluguel.Extensions
+namespace ApiAluguel.Extensions
 {
     public static class ExtensaoCPF
     {

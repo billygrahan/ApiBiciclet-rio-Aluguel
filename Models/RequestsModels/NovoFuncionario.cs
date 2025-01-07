@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Aluguel.Models.RequestsModels
+namespace ApiAluguel.Models.RequestsModels
 {
     public class NovoFuncionario
     {

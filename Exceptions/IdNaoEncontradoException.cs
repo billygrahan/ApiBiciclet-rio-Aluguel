@@ -1,4 +1,4 @@
-﻿namespace Aluguel.Exceptions
+﻿namespace ApiAluguel.Exceptions
 {
     public class IdNaoEncontradoException : Exception
     {

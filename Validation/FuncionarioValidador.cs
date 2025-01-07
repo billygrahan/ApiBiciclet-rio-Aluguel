@@ -1,9 +1,9 @@
-﻿using Aluguel.Extensions;
-using Aluguel.Models;
-using Aluguel.Models.RequestsModels;
-using Aluguel.Repositories.Interfaces;
+﻿using ApiAluguel.Extensions;
+using ApiAluguel.Models;
+using ApiAluguel.Models.RequestsModels;
+using ApiAluguel.Repositories.Interfaces;
 
-namespace Aluguel.Validation
+namespace ApiAluguel.Validation
 {
     public class FuncionarioValidador 
     {

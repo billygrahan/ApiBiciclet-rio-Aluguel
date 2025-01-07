@@ -1,8 +1,8 @@
-﻿using Aluguel.Models;
+﻿using ApiAluguel.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Aluguel.Maps
+namespace ApiAluguel.Maps
 {
     public class FuncionarioMap : IEntityTypeConfiguration<Funcionario>
     {

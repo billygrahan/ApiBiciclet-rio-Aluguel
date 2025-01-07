@@ -1,7 +1,7 @@
-﻿using Aluguel.Models;
-using Aluguel.Models.RequestsModels;
+﻿using ApiAluguel.Models;
+using ApiAluguel.Models.RequestsModels;
 
-namespace Aluguel.Repositories.Interfaces;
+namespace ApiAluguel.Repositories.Interfaces;
 
 public interface IFuncionarioRepositorio
 {

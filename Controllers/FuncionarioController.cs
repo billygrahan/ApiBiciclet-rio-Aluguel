@@ -1,13 +1,13 @@
-﻿using Aluguel.Exceptions;
-using Aluguel.Models;
-using Aluguel.Models.RequestsModels;
-using Aluguel.Repositories.Interfaces;
-using Aluguel.Tools;
-using Aluguel.Validation;
+﻿using ApiAluguel.Exceptions;
+using ApiAluguel.Models;
+using ApiAluguel.Models.RequestsModels;
+using ApiAluguel.Repositories.Interfaces;
+using ApiAluguel.Tools;
+using ApiAluguel.Validation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Aluguel.Controllers
+namespace ApiAluguel.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
