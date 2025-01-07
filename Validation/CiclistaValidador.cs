@@ -25,10 +25,10 @@ public class CiclistaValidador
         }
 
         // Validação da Data de Nascimento
-        if (ciclista.Nascimento > DateTime.Now.AddYears(-18))
+        /*if (ciclista.Nascimento > DateTime.Now.AddYears(-18))
         {
             listaErros.Add(new Erro("422", "O ciclista deve ter pelo menos 18 anos."));
-        }
+        }*/
 
         // Validação do CPF
         if (!string.IsNullOrWhiteSpace(ciclista.Cpf) && !Regex.IsMatch(ciclista.Cpf, @"^\d{11}$"))

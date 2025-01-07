@@ -16,14 +16,16 @@ public class CiclistaController : ControllerBase
     private readonly ICartaodeCreditoRepositorio _cartaoRepositorio;
     private readonly IAluguelRepositorio _aluguelRepositorio;
     private readonly CiclistaValidador _ciclistaValidador;
+    private readonly CartaoValidador _cartaoValidador;
 
     public CiclistaController(ICiclistaRepositorio ciclistaRepositorio, ICartaodeCreditoRepositorio cartao, IAluguelRepositorio aluguelRepositorio,
-        CiclistaValidador ciclistaValidador)
+        CiclistaValidador ciclistaValidador, CartaoValidador cartaovalidador)
     {
         _cartaoRepositorio = cartao;
         _ciclistaRepositorio = ciclistaRepositorio;
         _aluguelRepositorio = aluguelRepositorio;
         _ciclistaValidador = ciclistaValidador;
+        _cartaoValidador = cartaovalidador;
     }
  
 
@@ -42,7 +44,7 @@ public class CiclistaController : ControllerBase
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(List<Erro>))]
-    //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Ciclista))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Ciclista))]
     public async Task<ActionResult<Ciclista>> CadastrarCiclista([FromBody] Ciclista_Cartao ciclistaCartao)
     {
         var novoCiclista = ciclistaCartao.ciclista;
@@ -78,8 +80,12 @@ public class CiclistaController : ControllerBase
         cartao.Validade = DateTime.SpecifyKind(cartao.Validade, DateTimeKind.Utc);
 
         List<Erro> listaErros = _ciclistaValidador.GerarListaErros(ciclista);
-        if (listaErros.Count > 0)
+        List<Erro> listaErros2 = _cartaoValidador.GerarListaErros(cartao);
+        if (listaErros.Count > 0 || listaErros2.Count > 0)
+        {
+            listaErros.AddRange(listaErros2);
             return StatusCode(422, listaErros);
+        }
 
         var ciclistaInserido = await _ciclistaRepositorio.Adicionar(ciclista);
         await _cartaoRepositorio.Adicionar(cartao);
@@ -89,6 +95,8 @@ public class CiclistaController : ControllerBase
 
 
     [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(List<Erro>))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Ciclista))]
     public async Task<ActionResult<Ciclista>> AtualizarCiclista(int id, [FromBody] NovoCiclista novoCiclista)
     {
         var ciclistaExistente = await _ciclistaRepositorio.BuscarPorId(id);
@@ -105,6 +113,12 @@ public class CiclistaController : ControllerBase
         ciclistaExistente.Nacionalidade = novoCiclista.Nacionalidade;
         ciclistaExistente.Email = novoCiclista.Email;
         ciclistaExistente.UrlFotoDocumento = novoCiclista.UrlFotoDocumento;
+
+        List<Erro> listaErros = _ciclistaValidador.GerarListaErros(ciclistaExistente);
+        if (listaErros.Count > 0)
+        {
+            return StatusCode(422, listaErros);
+        }
 
         await _ciclistaRepositorio.Atualizar(ciclistaExistente);
 
