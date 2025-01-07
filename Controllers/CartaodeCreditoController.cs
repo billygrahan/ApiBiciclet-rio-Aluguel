@@ -1,10 +1,10 @@
-﻿using Aluguel.Models;
-using Aluguel.Models.RequestsModels;
-using Aluguel.Repositories.Interfaces;
+﻿using ApiAluguel.Models;
+using ApiAluguel.Models.RequestsModels;
+using ApiAluguel.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Aluguel.Controllers;
+namespace ApiAluguel.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

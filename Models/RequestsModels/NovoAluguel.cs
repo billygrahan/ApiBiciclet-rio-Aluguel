@@ -1,4 +1,4 @@
-﻿namespace Aluguel.Models.RequestsModels;
+﻿namespace ApiAluguel.Models.RequestsModels;
 
 public class NovoAluguel
 {

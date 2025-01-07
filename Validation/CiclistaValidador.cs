@@ -1,9 +1,9 @@
-﻿using Aluguel.Models.RequestsModels;
-using Aluguel.Models;
-using Aluguel.Repositories.Interfaces;
+﻿using ApiAluguel.Models.RequestsModels;
+using ApiAluguel.Models;
+using ApiAluguel.Repositories.Interfaces;
 using System.Text.RegularExpressions;
 
-namespace Aluguel.Validation;
+namespace ApiAluguel.Validation;
 
 public class CiclistaValidador
 {

@@ -1,9 +1,9 @@
-﻿using Aluguel.Maps;
-using Aluguel.Models;
+﻿using ApiAluguel.Maps;
+using ApiAluguel.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Aluguel.Context;
+namespace ApiAluguel.Context;
 
 public class AppDbContext : DbContext
 {
@@ -16,11 +16,12 @@ public class AppDbContext : DbContext
     public DbSet<Passaporte> Passaporte { get; set; }
     public DbSet<CartaoDeCredito> CartoesDeCreditos { get; set; }
     public DbSet<Devolucao> Devolucoes { get; set; }
-    public DbSet<Models.Aluguel> Alugueis { get; set; }
+    public DbSet<Aluguel> Alugueis { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new FuncionarioMap());
+        modelBuilder.ApplyConfiguration(new AluguelMap());
         base.OnModelCreating(modelBuilder);
     }
 }

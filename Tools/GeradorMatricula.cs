@@ -1,6 +1,6 @@
-﻿using Aluguel.Models;
+﻿using ApiAluguel.Models;
 
-namespace Aluguel.Tools
+namespace ApiAluguel.Tools
 {
     public class GeradorMatricula
     {

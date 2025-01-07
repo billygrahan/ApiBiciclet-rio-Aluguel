@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
-namespace Aluguel.Models;
+namespace ApiAluguel.Models;
 
 public class Devolucao
 {
     [Key]
+    [JsonIgnore]
     public int Id { get; set; }
 
     [Required]

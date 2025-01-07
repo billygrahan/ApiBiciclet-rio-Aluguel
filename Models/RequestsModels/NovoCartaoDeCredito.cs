@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Aluguel.Models.RequestsModels;
+namespace ApiAluguel.Models.RequestsModels;
 
 public class NovoCartaoDeCredito
 {

@@ -1,4 +1,4 @@
-﻿namespace Aluguel.Models
+﻿namespace ApiAluguel.Models
 {
     public class Erro
     {

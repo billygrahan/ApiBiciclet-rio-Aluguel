@@ -1,6 +1,6 @@
-@Aluguel_HostAddress = http://localhost:5110
+@ApiAluguel_HostAddress = http://localhost:5110
 
-GET {{Aluguel_HostAddress}}/weatherforecast/
+GET {{ApiAluguel_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

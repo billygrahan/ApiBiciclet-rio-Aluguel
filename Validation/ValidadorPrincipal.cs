@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Aluguel.Validation
+namespace ApiAluguel.Validation
 {
     public class ValidadorPrincipal
     {

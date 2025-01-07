@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 
-using Aluguel.Repositories.Interfaces;
-using Aluguel.Repositories;
-using Aluguel.Context;
+using ApiAluguel.Repositories.Interfaces;
+using ApiAluguel.Repositories;
+using ApiAluguel.Context;
 using System.Text.Json.Serialization;
-using Aluguel.Validation;
+using ApiAluguel.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +33,9 @@ builder.Services.AddScoped<IFuncionarioRepositorio, FuncionarioRepositorio>();
 builder.Services.AddScoped<ICiclistaRepositorio, CiclistaRepositorio>();
 builder.Services.AddScoped<ICartaodeCreditoRepositorio, CartaodeCreditoRepositorio>();
 builder.Services.AddScoped<IPassaporteRepositorio, PassaporteRepositorio>();
+builder.Services.AddScoped<IAluguelRepositorio, AluguelRepositorio>();
+builder.Services.AddScoped<IDevolucaoRepositorio, DevolucaoRepositorio>();
+
 
 builder.Services.AddScoped<FuncionarioValidador>();
 builder.Services.AddScoped<CiclistaValidador>();
