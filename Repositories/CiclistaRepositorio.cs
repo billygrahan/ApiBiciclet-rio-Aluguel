@@ -17,10 +17,10 @@ public class CiclistaRepositorio : ICiclistaRepositorio
 
     public async Task<Ciclista> Adicionar(Ciclista ciclista)
     {
-        await _appDbContext.Ciclistas.AddAsync(ciclista);
+        var ciclistaInserido = await _appDbContext.Ciclistas.AddAsync(ciclista);
         await _appDbContext.SaveChangesAsync();
 
-        return ciclista;
+        return ciclistaInserido.Entity;
     }
 
     public async Task<Ciclista> BuscarPorId(int id)

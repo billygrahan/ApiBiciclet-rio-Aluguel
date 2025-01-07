@@ -9,7 +9,6 @@ namespace ApiAluguel.Models;
 public class Ciclista
 {
     [Key]
-    [JsonIgnore]
     public int Id { get; set; }
 
     [EnumDataType(typeof(StatusCiclista))]

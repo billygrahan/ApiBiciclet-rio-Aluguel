@@ -81,10 +81,10 @@ public class CiclistaController : ControllerBase
         if (listaErros.Count > 0)
             return StatusCode(422, listaErros);
 
-        await _ciclistaRepositorio.Adicionar(ciclista);
+        var ciclistaInserido = await _ciclistaRepositorio.Adicionar(ciclista);
         await _cartaoRepositorio.Adicionar(cartao);
 
-        return CreatedAtAction(nameof(BuscarCiclistaPorId), new { id = ciclista.Id }, ciclista);
+        return CreatedAtAction(nameof(BuscarCiclistaPorId), new { id = ciclista.Id }, ciclistaInserido);
     }
 
 
