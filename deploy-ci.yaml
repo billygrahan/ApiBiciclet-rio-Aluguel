@@ -1,0 +1,26 @@
+pool:
+  name: Azure Pipelines
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 8.x'
+  inputs:
+    version: 8.x
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    projects: '**/*.csproj'
+    verbosityRestore: Detailed
+    verbosityPack: Detailed
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish'
+  inputs:
+    command: publish
+    arguments: '--output $(build.artifactstagingdirectory)'
+    zipAfterPublish: false
+    verbosityRestore: Detailed
+    verbosityPack: Detailed
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
