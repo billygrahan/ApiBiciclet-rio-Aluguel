@@ -32,9 +32,9 @@ public class CiclistaValidador
         }*/
 
         // Validação do CPF
-        if(ciclista.Cpf != null)
+        if(!(ciclista.Cpf is null))
         {
-            if (!ciclista.Cpf.ehValido() && !Regex.IsMatch(ciclista.Cpf, @"^\d{11}$"))
+            if (!ciclista.Cpf.ehValido())
             {
                 listaErros.Add(new Erro("422", "O CPF não é válido"));
             }

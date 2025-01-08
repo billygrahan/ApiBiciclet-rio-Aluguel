@@ -39,6 +39,7 @@ builder.Services.AddScoped<IDevolucaoRepositorio, DevolucaoRepositorio>();
 
 builder.Services.AddScoped<FuncionarioValidador>();
 builder.Services.AddScoped<CiclistaValidador>();
+builder.Services.AddScoped<CartaoValidador>();
 
 var app = builder.Build();
 

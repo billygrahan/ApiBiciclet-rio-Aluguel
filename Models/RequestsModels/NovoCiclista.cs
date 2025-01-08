@@ -5,7 +5,6 @@ namespace ApiAluguel.Models.RequestsModels;
 public class NovoCiclista
 {
     
-    [StringLength(100, ErrorMessage = "O nome não pode ter mais que 100 caracteres.")]
     public string Nome { get; set; }
 
     
@@ -13,7 +12,6 @@ public class NovoCiclista
     public DateTime Nascimento { get; set; }
 
     
-    [RegularExpression(@"\d{11}", ErrorMessage = "CPF deve conter exatamente 11 dígitos.")]
     public string? Cpf { get; set; }
 
     // Relacionamento com o passaporte
@@ -24,11 +22,9 @@ public class NovoCiclista
     public NacionalidadeCiclista Nacionalidade { get; set; }
 
     
-    [EmailAddress(ErrorMessage = "E-mail inválido.")]
     public string Email { get; set; }
 
     
-    [Url(ErrorMessage = "URL inválida.")]
     public string UrlFotoDocumento { get; set; }
 }
 
