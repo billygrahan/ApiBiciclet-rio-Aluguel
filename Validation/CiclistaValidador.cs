@@ -2,6 +2,7 @@
 using ApiAluguel.Models;
 using ApiAluguel.Repositories.Interfaces;
 using System.Text.RegularExpressions;
+using ApiAluguel.Extensions;
 
 namespace ApiAluguel.Validation;
 
@@ -31,9 +32,12 @@ public class CiclistaValidador
         }*/
 
         // Validação do CPF
-        if (!string.IsNullOrWhiteSpace(ciclista.Cpf) && !Regex.IsMatch(ciclista.Cpf, @"^\d{11}$"))
+        if(ciclista.Cpf != null)
         {
-            listaErros.Add(new Erro("422", "O CPF deve conter exatamente 11 dígitos."));
+            if (!ciclista.Cpf.ehValido() && !Regex.IsMatch(ciclista.Cpf, @"^\d{11}$"))
+            {
+                listaErros.Add(new Erro("422", "O CPF não é válido"));
+            }
         }
 
         // Validação do Email
@@ -49,10 +53,10 @@ public class CiclistaValidador
         }
 
         // Validação do Status
-        if (!Enum.IsDefined(typeof(StatusCiclista), ciclista.Status))
+        /*if (!Enum.IsDefined(typeof(StatusCiclista), ciclista.Status))
         {
             listaErros.Add(new Erro("422", "O status do ciclista é inválido."));
-        }
+        }*/
 
         // Validação da Nacionalidade
         if (!Enum.IsDefined(typeof(NacionalidadeCiclista), ciclista.Nacionalidade))
