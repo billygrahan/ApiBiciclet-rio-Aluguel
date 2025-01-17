@@ -18,8 +18,4 @@ Migrations/
 *.svclog
 *.pdb
 
-# Configurações do ambiente
-appsettings.json
-appsettings.Development.json
-
 
