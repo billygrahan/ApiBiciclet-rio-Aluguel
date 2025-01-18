@@ -6,7 +6,7 @@ namespace ApiAluguel.Tools
     {
         public static string GerarMatricula(Funcao f)
         {
-            var matricula = f.ToString().Substring(0,3)+ Guid.NewGuid().ToString().Substring(0, 8);
+            var matricula = f.ToString().Substring(0,3)+ Guid.NewGuid().ToString().Substring(0, 7);
             return matricula;
         }
     }
