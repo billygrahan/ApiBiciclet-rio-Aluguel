@@ -64,6 +64,17 @@ public class CiclistaValidador
             listaErros.Add(new Erro("422", "A nacionalidade do ciclista é inválida."));
         }
 
+        if(ciclista.Passaporte is not null){
+            if (string.IsNullOrWhiteSpace(ciclista.Passaporte.Numero) || ciclista.Passaporte.Numero.Length > 20)
+            {
+                listaErros.Add(new Erro("422", "O numero precisa ter no máximo 20 caracteres e não pode ser vazio."));
+            }
+            if (string.IsNullOrWhiteSpace(ciclista.Passaporte.Pais) || ciclista.Passaporte.Pais.Length > 50)
+            {
+                listaErros.Add(new Erro("422", "O numero precisa ter no máximo 50 caracteres."));
+            }
+        }
+
         return listaErros;
     }
 }

@@ -7,13 +7,13 @@ namespace ApiAluguel.Models;
 public class Passaporte
 {
     [Key]
-    [StringLength(20, ErrorMessage = "O número do passaporte não pode exceder 20 caracteres.")]
+    //[StringLength(20, ErrorMessage = "O número do passaporte não pode exceder 20 caracteres.")]
     public string Numero { get; set; }
 
     [DataType(DataType.Date)]
     public DateTime Validade { get; set; }
 
-    [StringLength(50, ErrorMessage = "O país não pode ter mais que 50 caracteres.")]
+    //[StringLength(50, ErrorMessage = "O país não pode ter mais que 50 caracteres.")]
     public string Pais { get; set; }
 
     // Chave estrangeira para associar ao Ciclista
