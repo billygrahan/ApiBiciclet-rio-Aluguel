@@ -5,6 +5,8 @@ using ApiAluguel.Repositories;
 using ApiAluguel.Context;
 using System.Text.Json.Serialization;
 using ApiAluguel.Validation;
+using ApiAluguel.ExternoServices;
+using ApiAluguel.ExternoServices.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +37,12 @@ builder.Services.AddScoped<ICartaodeCreditoRepositorio, CartaodeCreditoRepositor
 builder.Services.AddScoped<IPassaporteRepositorio, PassaporteRepositorio>();
 builder.Services.AddScoped<IAluguelRepositorio, AluguelRepositorio>();
 builder.Services.AddScoped<IDevolucaoRepositorio, DevolucaoRepositorio>();
+
+
+builder.Services.AddHttpClient<ICartaoExternoService, CartaoExternoService>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5299/"); // Base URL do microserviço Externo
+});
 
 
 builder.Services.AddScoped<FuncionarioValidador>();

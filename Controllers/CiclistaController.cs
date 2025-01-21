@@ -80,7 +80,7 @@ public class CiclistaController : ControllerBase
         cartao.Validade = DateTime.SpecifyKind(cartao.Validade, DateTimeKind.Utc);
 
         List<Erro> listaErros = _ciclistaValidador.GerarListaErros(ciclista);
-        List<Erro> listaErros2 = _cartaoValidador.GerarListaErros(cartao);
+        List<Erro> listaErros2 = await _cartaoValidador.GerarListaErros(cartao);
         if (listaErros.Count > 0 || listaErros2.Count > 0)
         {
             listaErros.AddRange(listaErros2);

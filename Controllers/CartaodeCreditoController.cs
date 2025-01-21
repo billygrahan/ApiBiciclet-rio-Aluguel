@@ -49,7 +49,7 @@ public class CartaodeCreditoController : ControllerBase
         cartaoexixtente.Validade = DateTime.SpecifyKind(cartaoexixtente.Validade, DateTimeKind.Utc);
         cartaoexixtente.Cvv = cartaoatualizado.Cvv;
 
-        List<Erro> listaErros = _cartaoValidador.GerarListaErros(cartaoexixtente);
+        List<Erro> listaErros = await _cartaoValidador.GerarListaErros(cartaoexixtente);
         if (listaErros.Count > 0)
         {
             return StatusCode(422, listaErros);
