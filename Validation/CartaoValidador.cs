@@ -39,6 +39,7 @@ public class CartaoValidador
             listaErros.Add(new Erro("422", "O CVV deve conter 3 ou 4 dígitos e não pode ser vazio."));
         }
 
+        /**
         if (listaErros.Count == 0)
         {
             try
@@ -61,6 +62,7 @@ public class CartaoValidador
                 listaErros.Add(new Erro("422", ex.Message));
             }
         }
+        **/
 
         return listaErros;
     }

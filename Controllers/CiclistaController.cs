@@ -5,6 +5,7 @@ using ApiAluguel.Validation;
 using ApiAluguel.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ApiAluguel.Services.Interfaces;
 
 namespace ApiAluguel.Controllers;
 
@@ -17,15 +18,17 @@ public class CiclistaController : ControllerBase
     private readonly IAluguelRepositorio _aluguelRepositorio;
     private readonly CiclistaValidador _ciclistaValidador;
     private readonly CartaoValidador _cartaoValidador;
+    private readonly IEquipamentoService _equipamentoService;
 
     public CiclistaController(ICiclistaRepositorio ciclistaRepositorio, ICartaodeCreditoRepositorio cartao, IAluguelRepositorio aluguelRepositorio,
-        CiclistaValidador ciclistaValidador, CartaoValidador cartaovalidador)
+        CiclistaValidador ciclistaValidador, CartaoValidador cartaovalidador, IEquipamentoService equipamentoService)
     {
         _cartaoRepositorio = cartao;
         _ciclistaRepositorio = ciclistaRepositorio;
         _aluguelRepositorio = aluguelRepositorio;
         _ciclistaValidador = ciclistaValidador;
         _cartaoValidador = cartaovalidador;
+        _equipamentoService = equipamentoService;
     }
  
 
@@ -192,15 +195,8 @@ public class CiclistaController : ControllerBase
             return Ok(new { });
 
         // Integração para pegar Bicicleta usando Id deve acontecer aqui
-        Bicicleta bicicleta = new Bicicleta
-        {
-            Id = aluguel.Bicicleta,
-            Marca = "Caloi",
-            Modelo = "Bicicleta Placeholder",
-            Numero = 1,
-            Status = "EM_USO"
 
-        };
+        var bicicleta = await _equipamentoService.PegarBicicleta(aluguel.Bicicleta);
 
         return Ok(bicicleta);
     }

@@ -7,6 +7,9 @@ using System.Text.Json.Serialization;
 using ApiAluguel.Validation;
 using ApiAluguel.ExternoServices;
 using ApiAluguel.ExternoServices.Interfaces;
+using ApiAluguel.APIs;
+using ApiAluguel.Services.Interfaces;
+using ApiAluguel.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +40,7 @@ builder.Services.AddScoped<ICartaodeCreditoRepositorio, CartaodeCreditoRepositor
 builder.Services.AddScoped<IPassaporteRepositorio, PassaporteRepositorio>();
 builder.Services.AddScoped<IAluguelRepositorio, AluguelRepositorio>();
 builder.Services.AddScoped<IDevolucaoRepositorio, DevolucaoRepositorio>();
-
+builder.Services.AddScoped<IEquipamentoService, EquipamentoService>();
 
 builder.Services.AddHttpClient<ICartaoExternoService, CartaoExternoService>(client =>
 {
@@ -45,9 +48,13 @@ builder.Services.AddHttpClient<ICartaoExternoService, CartaoExternoService>(clie
 });
 
 
+builder.Services.Configure<EquipamentoAPISettings>(builder.Configuration.GetSection("EquipamentoAPISettings"));
+
 builder.Services.AddScoped<FuncionarioValidador>();
 builder.Services.AddScoped<CiclistaValidador>();
 builder.Services.AddScoped<CartaoValidador>();
+builder.Services.AddScoped<EquipamentoAPI>();
+
 
 var app = builder.Build();
 

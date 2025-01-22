@@ -1,6 +1,7 @@
 ﻿using ApiAluguel.Models;
 using ApiAluguel.Models.RequestsModels;
 using ApiAluguel.Repositories.Interfaces;
+using ApiAluguel.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -12,11 +13,13 @@ namespace ApiAluguel.Controllers
     {
         private readonly IAluguelRepositorio _aluguelRepositorio;
         private readonly ICiclistaRepositorio _ciclistaRepositorio;
+        private readonly IEquipamentoService _equipamentoService;
 
-        public AluguelController(IAluguelRepositorio aluguelRepositorio, ICiclistaRepositorio ciclistaRepositorio )
+        public AluguelController(IAluguelRepositorio aluguelRepositorio, ICiclistaRepositorio ciclistaRepositorio, IEquipamentoService equipamentoService)
         {
             _aluguelRepositorio = aluguelRepositorio;
             _ciclistaRepositorio = ciclistaRepositorio;
+            _equipamentoService = equipamentoService;
         }
 
         [HttpPost]
@@ -38,41 +41,57 @@ namespace ApiAluguel.Controllers
             // do aluguel em andamento no caso abaixo
             if (temAluguelAtivo)
                 erros.Add(new Erro("422", "O ciclista já possui um aluguel em andamento e não pode pegar outra bicicleta."));
-
-
             if (erros.Count > 0)
                 return StatusCode(422, erros);
 
 
-            // Tratar os outros fluxos de exceção/alternativo que fazem parte da integração
 
-            // Integrações devem acontecer aqui para obter os ID's de Cobranca, Bicicleta
-            // Deverá ser realizado uma Cobrança
 
-            // Valores aleatórios para enquanto não é realizado as integrações
-            Random random = new Random();
-
-            Aluguel aluguel = new Aluguel
+            try
             {
+                var trancaResponse = await _equipamentoService.PegarTranca(novoAluguel.trancaInicio);
 
-                Bicicleta = random.Next(1, 21),
-                HoraInicio = DateTime.UtcNow,
-                // HoraFim com valor placeholder
-                HoraFim = DateTime.MinValue,
-                TrancaInicio = novoAluguel.trancaInicio,
-                // TrancaFim precisará ser atualizada na devolução, assim como HoraFim
-                TrancaFim = 0,
-                Cobranca = random.Next(1, 21),
-                Ciclista = novoAluguel.ciclista,
-                Ativo = true
-            };
+                // Tratar os outros fluxos de exceção/alternativo que fazem parte da integração
 
-            aluguel = await _aluguelRepositorio.AlugarBicicleta(aluguel);
+                // Integrações devem acontecer aqui para obter os ID's de Cobranca, Bicicleta
+                // Deverá ser realizado uma Cobrança
 
-            // Depois de realizar o aluguel será preciso mudar os status da Tranca e da Bicicleta
-            // Também será necessário enviar um email para o Ciclista com todos os dados do aluguel
+                // Valores aleatórios para enquanto não é realizado as integrações
+                Random random = new Random();
 
-            return Ok(aluguel);
+                Console.WriteLine(trancaResponse._bicicletaId);
+                Console.WriteLine(trancaResponse.BicicletaIdValidado);
+
+                Aluguel aluguel = new Aluguel
+                {
+
+                    Bicicleta = trancaResponse.BicicletaIdValidado,
+                    HoraInicio = DateTime.UtcNow,
+                    // HoraFim com valor placeholder
+                    HoraFim = DateTime.MinValue,
+                    TrancaInicio = novoAluguel.trancaInicio,
+                    // TrancaFim precisará ser atualizada na devolução, assim como HoraFim
+                    TrancaFim = 0,
+                    Cobranca = random.Next(1, 21),
+                    Ciclista = novoAluguel.ciclista,
+                    Ativo = true
+                };
+
+                var trancaAtualizada = await _equipamentoService.DestrancarBicicleta(novoAluguel.trancaInicio, trancaResponse.BicicletaIdValidado);
+
+                aluguel = await _aluguelRepositorio.AlugarBicicleta(aluguel);
+
+                // Depois de realizar o aluguel será preciso mudar os status da Tranca e da Bicicleta
+
+
+                // Também será necessário enviar um email para o Ciclista com todos os dados do aluguel
+
+                return Ok(aluguel);
+                }
+            catch (Exception ex) {
+                // Temporário
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
